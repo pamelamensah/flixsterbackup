@@ -1,0 +1,13 @@
+.site-header {
+  background-color: #141414;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-family: "Helvetica Neue", sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.site-title {
+  margin: 0;
+  font-size: 2rem;
+}

@@ -1,0 +1,203 @@
+/*.movie-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  padding: 20px;
+  justify-items: center;
+}
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  margin-left: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-buttons button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.toggle-buttons .active {
+  background-color: #ff4757;
+  color: white;
+}
+
+.load-more {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.load-more button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #1c1c1c;
+  color: white;
+  cursor: pointer;
+}
+*/
+/* Flexbox layout for top controls */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Toggle button group */
+.toggle-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-buttons button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.toggle-buttons .active {
+  background-color: #ff4757;
+  color: white;
+}
+
+/* Search bar styling */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive grid for movie cards */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  padding: 20px;
+  justify-items: center;
+}
+
+/* Load more button */
+.load-more {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.load-more button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #1c1c1c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more button:hover {
+  background-color: #333;
+}
+@media (max-width: 768px) {
+  .top-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .toggle-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  .movie-list {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .load-more button {
+    width: 100%;
+  }
+}
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.sort-dropdown label {
+  color: white;
+  font-weight: bold;
+}
+
+.sort-dropdown select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: none;
+  background: #333;
+  color: white;
+}
+/* Style for the new clear button */
+.search-bar .clear-button {
+    background-color: #6c757d; /* A neutral gray color */
+}
+
+.search-bar .clear-button:hover {
+    background-color: #5a6268;
+}
