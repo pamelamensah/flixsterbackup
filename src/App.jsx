@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import MovieList from './Components/MovieList/MovieList';
 import tmdbApi from './api/tmdb';
@@ -7,11 +7,12 @@ import Header from './Components/Header/Header';
 
 
 const App = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <div className="App">
-        <Header/>
-        <MovieList/>
+        <Header hideAnimation={showModal}/>
+        <MovieList showModal={showModal} setShowModal={setShowModal} />
         <Footer/> 
       </div>
     </>
