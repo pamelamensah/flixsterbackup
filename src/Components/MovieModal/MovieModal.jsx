@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./MovieModal.css";
 import tmdbApi from "../../api/tmdb"; 
-import { FaPlay, FaHeart, FaEye } from "react-icons/fa";
+import { FaPlay, FaHeart, FaEye, FaTimes } from "react-icons/fa";
 
 const MovieModal = ({ show, onClose, movie }) => {
     if (!show || !movie) return null;
@@ -17,6 +17,7 @@ const MovieModal = ({ show, onClose, movie }) => {
     const [isFavorite, setIsFavorite] = useState(false);
     const [isWatched, setIsWatched] = useState(false);
     const [fullMovieData, setFullMovieData] = useState(null);
+    const [showTrailerPopup, setShowTrailerPopup] = useState(false);
 
 
 
@@ -78,10 +79,14 @@ const MovieModal = ({ show, onClose, movie }) => {
 
     const handlePlayTrailer = () => {
         if (trailerKey) {
-            window.open(`https://www.youtube.com/watch?v=${trailerKey}`, "_blank");
+            setShowTrailerPopup(true);
         } else {
             alert("No trailer available for this movie.");
         }
+    };
+
+    const closeTrailerPopup = () => {
+        setShowTrailerPopup(false);
     };
     const toggleFavorite = () => {
         setIsFavorite((prev) => !prev);
@@ -221,6 +226,27 @@ const MovieModal = ({ show, onClose, movie }) => {
                     </div>
                 )}
             </div>
+
+            {/* Trailer Popup */}
+            {showTrailerPopup && trailerKey && (
+                <div className="trailer-popup-overlay" onClick={closeTrailerPopup}>
+                    <div className="trailer-popup-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="trailer-close-btn" onClick={closeTrailerPopup}>
+                            <FaTimes />
+                        </button>
+                        <div className="trailer-container">
+                            <iframe
+                                src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&rel=0`}
+                                title={`${movie.title} Trailer`}
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="trailer-iframe"
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
